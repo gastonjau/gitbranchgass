@@ -159,8 +159,10 @@ document.addEventListener('DOMContentLoaded', ()=> {
 
 				if( esGanador(tipoDeJugador) ){
 					enJuego = false
-					mostrarGanador();
-					console.log("Tengo ganador");
+					console.log("aca")
+                    mostrarGanador();
+					console.log("Tengo ganador", tipoDeJugador);
+
 				}else{
 
 					console.log("No tengo ganador");
@@ -326,16 +328,40 @@ document.addEventListener('DOMContentLoaded', ()=> {
 		}
 
 
-		if(lineaTres(tablero[0][0], tablero[0][1], tablero[0][2], jugadorAct ))return true && console.log("ganador horizontal")
-		if(lineaTres(tablero[1][0], tablero[1][1], tablero[1][2], jugadorAct ))return true && console.log("ganador horizontal")
-		if(lineaTres(tablero[2][0], tablero[2][1], tablero[2][2], jugadorAct ))return true && console.log("ganador horizontal")
+		if(lineaTres(tablero[0][0], tablero[0][1], tablero[0][2], jugadorAct )){
+            console.log("ganador horizontal jugador: "+ jugador)
+            return true
+        } 
+		if(lineaTres(tablero[1][0], tablero[1][1], tablero[1][2], jugadorAct )){
+            console.log("ganador horizontal jugador: "+ jugador)
+            return true
+        }
+        if(lineaTres(tablero[2][0], tablero[2][1], tablero[2][2], jugadorAct )){
+            console.log("ganador horizontal jugador: "+ jugador)
+            return true
+        }
 
-		if(lineaTres(tablero[0][0], tablero[1][0], tablero[2][0], jugadorAct ))return true && console.log("ganador vertical")
-		if(lineaTres(tablero[0][1], tablero[1][1], tablero[2][1], jugadorAct ))return true && console.log("ganador vertical")
-		if(lineaTres(tablero[0][2], tablero[1][2], tablero[2][2], jugadorAct ))return true && console.log("ganador vertical")
+		if(lineaTres(tablero[0][0], tablero[1][0], tablero[2][0], jugadorAct )){
+            console.log("ganador vertical jugador: "+ jugador)
+            return true
+        }
+		if(lineaTres(tablero[0][1], tablero[1][1], tablero[2][1], jugadorAct )){
+            console.log("ganador vertical jugador: "+ jugador)
+            return true
+        }
+		if(lineaTres(tablero[0][2], tablero[1][2], tablero[2][2], jugadorAct )){
+            console.log("ganador vertical jugador: "+ jugador)
+            return true
+        } 
 
-		if(lineaTres(tablero[0][0], tablero[1][1], tablero[2][2], jugadorAct ))return true && console.log("ganador diagonal")
-		if(lineaTres(tablero[0][2], tablero[1][1], tablero[2][0], jugadorAct ))return true && console.log("ganador diagonal")
+		if(lineaTres(tablero[0][0], tablero[1][1], tablero[2][2], jugadorAct )){
+            console.log("ganador diagonal jugador: "+ jugador)
+            return true
+        }
+		if(lineaTres(tablero[0][2], tablero[1][1], tablero[2][0], jugadorAct )){
+            console.log("ganador diagonal jugador: "+ jugador)
+            return true
+        }
 
 		return false;
 	}
