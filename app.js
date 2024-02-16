@@ -1,11 +1,12 @@
 document.addEventListener('DOMContentLoaded', ()=> {
 	
-	let tablero = [[0,0,0], [0,0,0], [0,0,0]];
+	let tablero = [["","",""], ["","",""], ["","",""]];
 	let enJuego = false;
 	let jugadorX = false; // true = x  false = 0
 	let tipoDeJugador = "O"
 	let inicioAlAzar = true; // el inicio puede ser al azar o el usuario elegi que jugador comienza.
 	let posSel;
+	quienComienza(0);
 
 	let nombreJugadorX = "";
 	let nombreJugador0 = "";
@@ -34,9 +35,9 @@ document.addEventListener('DOMContentLoaded', ()=> {
 
 	pos1.addEventListener('click', ()=> {
 
-		if(estaVacio(posicion['1'])){
+		if(casillaVacia(posicion['1'])){
 			posSel = posicion['1'];
-			nuevoMovimiento();
+			nuevoMovimiento(posSel);
 			console.log(posSel);
 		}
 		
@@ -44,18 +45,18 @@ document.addEventListener('DOMContentLoaded', ()=> {
 
 	pos2.addEventListener('click', ()=> {
 
-		if(estaVacio(posicion['2'])){
+		if(casillaVacia(posicion['2'])){
 			posSel = posicion['2'];
-			nuevoMovimiento();
+			nuevoMovimiento(posSel);
 			console.log(posSel);
 		}
 	});
 
 	pos3.addEventListener('click', ()=> {
 
-		if(estaVacio(posicion['3'])){
+		if(casillaVacia(posicion['3'])){
 			posSel = posicion['3'];
-			nuevoMovimiento();
+			nuevoMovimiento(posSel);
 			console.log(posSel);
 		}
 	});
@@ -91,18 +92,11 @@ document.addEventListener('DOMContentLoaded', ()=> {
 	});
 
 
-	function marcarPosicion(pos){
-		if(estaVacio(posicion[pos])){
-			posSel = pos;
-			console.log(pos);
-		}
-	}
-
 	function nuevojuego(){
 		
 		//inicializo variables para comenzar el juego
 		enJuego = true;
-		quienComienza(inicio);
+		quienComienza(0);
 
 
 	}
@@ -110,39 +104,34 @@ document.addEventListener('DOMContentLoaded', ()=> {
 	//NUevo movimiento
 	function nuevoMovimiento(posSel){
 
-		if (marcarCelda(posSel)){
+		if (marcarCasilla(posSel, tipoDeJugador)){
 
-			if (tengoCeldasVacias()){
+			console.log("Celda marcada ok");
+
+			if (hayCasillaVacia()){
+
+				console.log("Tengo celdas libres");
 				siguienteJugador()
-			}else{
-				if(!tengoCeldasVacias() && !jugadorGanador()){
+
+				if(!hayCasillaVacia() && !esGanador(tipoDeJugador)){
 					mostrarFinDelJuego();
 				}
 
-				if(jugadorGanador()){
+				if(esGanador(tipoDeJugador)){
 					mostrarGanador();
 				}
+
+			}else{
+				console.log("NO tengo celdas libres");
 			}
 			
+		}else{
+			console.log("Error al marcar la celda o no se marco por otro motivo");
 		}	
 
 	} 
 
 
-
-	function marcarCelda(pos){
-		if(estaVacio(posicion[pos])){
-
-			if(marcarCasilla(posicion[pos], tipoDeJugador)){
-
-			}else{
-				console.log("Error; no fue posible marcar la casilla seleccionada")
-			}
-		
-		}
-
-
-	}
 
 	//cambia de un jugador a otro
 	function siguienteJugador(){
@@ -166,7 +155,7 @@ document.addEventListener('DOMContentLoaded', ()=> {
 
 		if(inicio == 0) {
 			const resultado = Math.floor(Math.random() * 2) + 1
-			console.log(resultado);
+			// console.log(resultado);
 
 			if (resultado == 1){
 				// cantUno++;
@@ -201,6 +190,7 @@ document.addEventListener('DOMContentLoaded', ()=> {
 		console.log("El Ganador es: ", ganador );
 	}
 
+
 	function mostrarFinDelJuego(){
 		console.log("FIN DEL JUEGO # EMPATE #");
 	}
@@ -209,65 +199,43 @@ document.addEventListener('DOMContentLoaded', ()=> {
 
 
 
-	function jugadorGanador(){
-		if(esGanador(jugadorX)){
-			return true;
-		}else{
-			return false;
-		}
-	}
-
-
-	function tengoCeldasVacias(){
-		if(celdasVacias()){
-			return true;
-		}else{
-			return false;
-		}
-	}
-
-
-
-
 	////////////////////////////////////////////////////////(Codigo de Gaston)
 
-	function iniciarTablero(){
-		
-	}
-	
 	// let tablero = [["X","X","O"], ["O","0","O"], ["X","X","X"]];
 	// console.log(tablero[0][0])
 	//Vacio
 
 
-	let estaVacio = (pos) =>{
-		let pos1 = Number( pos[0])
-		let pos2 = Number( pos[1])
+	function casillaVacia(pos){
 
-		console.log(pos1);
-		console.log(pos2);
+		let pos1 = Number( pos[0] )
+		let pos2 = Number( pos[1] )
 
 		// console.log(tablero[pos1][pos2]);
-		console.log(typeof(tablero[pos1][pos2]));
 
-		if(tablero[pos1][pos2] == 0 ){
+		if(tablero[pos1][pos2] == "" ){
+			// console.log("ok");
 			return true
 		}else{
+			// console.log("no");
 			return false;
 		}
 	}
+
 	//Esta vacio?
 	// console.log(estaVacio(tablero[0,0], "X"))"
 
 
-	let marcarCasilla = (pos , jugador)=>{
+	function marcarCasilla(pos , jugador){
 
 		try{
-			let pos1 = Number( pos[0])
-			let pos2 = Number( pos[1])
-			console.log("posicion: "+ pos1, pos2)
+			let pos1 = Number( pos[0] )
+			let pos2 = Number( pos[1] )
+
+			// console.log("posicion: ",pos1, pos2)
 			tablero[pos1][pos2] = jugador //Nuevo arreglo modificado
 			return true;
+
 		}catch(err){
 			console.error(err)
 		}
@@ -275,10 +243,15 @@ document.addEventListener('DOMContentLoaded', ()=> {
 	}
 	// console.log(marcarCasilla(0,1, "X"))
 
-	let esGanador = (jugador) =>{
+	function esGanador (jugador) {
 		function lineaTres (pos1, pos2, pos3){
-			if (estaVacio(pos1, jugador) || estaVacio(pos2, jugador) || estaVacio(pos3, jugador))return false
-			return true
+
+			// if ( casillaVacia(pos1) || casillaVacia(pos2) || casillaVacia(pos3)){
+			// 	return false;
+			// }
+			// else{
+			// 	return true;
+			// }
 		}
 
 		if(lineaTres(tablero[0][0], tablero[0][1], tablero[0][2]))return true && console.log("ganador horizontal")
@@ -295,22 +268,25 @@ document.addEventListener('DOMContentLoaded', ()=> {
 	// esGanador("O")
 
 
-	function celdasVacias(){
+	function hayCasillaVacia(){
 
-		for(let i = 0; i <= tablero[0].length -1; i++){
+		for(let i = 0; i < i < 3; i++){
 			for(let j = 0 ; j < 3; j++){
-				let nuevo = tablero[i][j]
+
+				// console.log("i", i, "j", j)
+				let celda  = tablero[i][j];
+				// console.log("celda::", celda)
 				
-				if(nuevo == 0)return console.log("Celda vacia encontrada") 
+				if( celda  == ""){
+					return true;
+				}
+					
 			}
 		}
-		console.log("NO hay celdas vacias")
+
+		return false;
 		
-	} //Funciona bien
-
-	// celdasVacias()
-
-	//Pruebas
+	} //Funciona bie
 
 
 });
