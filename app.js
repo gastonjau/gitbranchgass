@@ -6,10 +6,12 @@ document.addEventListener('DOMContentLoaded', ()=> {
 	let tipoDeJugador = "O"
 	let inicioAlAzar = true; // el inicio puede ser al azar o el usuario elegi que jugador comienza.
 	let posSel;
+	let comienza = document.getElementById("comienza"); 
 	quienComienza(0);
 	nuevojuego();
 	let nombreJugadorX = ""
 	let nombreJugador0 = ""
+	
 
 	let botonconf = document.getElementById("botonconf")
 	botonconf.addEventListener("click", () => {
@@ -20,7 +22,6 @@ document.addEventListener('DOMContentLoaded', ()=> {
 
 	let botonconf2 = document.getElementById("botonconf2")
 	botonconf2.addEventListener("click", () => {
-		tablero = [["","",""], ["","",""], ["","",""]];
 		img1.style.visibility = "hidden";
 		img2.style.visibility = "hidden";
 		img3.style.visibility = "hidden";
@@ -39,6 +40,9 @@ document.addEventListener('DOMContentLoaded', ()=> {
 		img16.style.visibility = "hidden";
 		img17.style.visibility = "hidden";
 		img18.style.visibility = "hidden";
+		turno.innerText = ""
+		tablero = [["","",""], ["","",""], ["","",""]];
+		quienComienza(0)
 		alert("Tablero Reseteado")
 	})
 
@@ -84,16 +88,20 @@ document.addEventListener('DOMContentLoaded', ()=> {
 	let img18 = document.getElementById("imagen18")
 
 
-
+	let turno = document.getElementById("turno");
 	pos1.addEventListener('click', ()=> {
 
+		
 		if(enJuego){
 			if(casillaVacia(posicion['1'])){
-
+				comienza.innerText = ""
 				if(tipoDeJugador == "X"){
 					img1.style.visibility = "visible";
+					turno.innerText = "Turno de O"
+					
 				}else{
 					img2.style.visibility = "visible";
+					turno.innerText = "Turno de X"
 				}
 				posSel = posicion['1'];
 				nuevoMovimiento(posSel);
@@ -109,10 +117,13 @@ document.addEventListener('DOMContentLoaded', ()=> {
 		
 		if(enJuego){
 			if(casillaVacia(posicion['2'])){
+				comienza.innerText = ""
 				if(tipoDeJugador == "X"){
 					img7.style.visibility = "visible";
+					turno.innerText = "Turno de O"
 				}else{
 					img8.style.visibility = "visible";
+					turno.innerText = "Turno de X"
 				}
 				posSel = posicion['2'];
 				nuevoMovimiento(posSel);
@@ -126,10 +137,13 @@ document.addEventListener('DOMContentLoaded', ()=> {
 		if(enJuego){
 
 			if(casillaVacia(posicion['3'])){
+				comienza.innerText = ""
 				if(tipoDeJugador == "X"){
 					img13.style.visibility = "visible";
+					turno.innerText = "Turno de O"
 				}else{
 					img14.style.visibility = "visible";
+					turno.innerText = "Turno de X"
 				}
 				posSel = posicion['3'];
 				nuevoMovimiento(posSel);
@@ -143,10 +157,13 @@ document.addEventListener('DOMContentLoaded', ()=> {
 		if(enJuego){
 
 			if(casillaVacia(posicion['4'])){
+				comienza.innerText = ""
 				if(tipoDeJugador == "X"){
 					img3.style.visibility = "visible";
+					turno.innerText = "Turno de O"
 				}else{
 					img4.style.visibility = "visible";
+					turno.innerText = "Turno de X"
 				}
 				posSel = posicion['4'];
 				nuevoMovimiento(posSel);
@@ -159,10 +176,13 @@ document.addEventListener('DOMContentLoaded', ()=> {
 		
 		if(enJuego){
 			if(casillaVacia(posicion['5'])){
+				comienza.innerText = ""
 				if(tipoDeJugador == "X"){
 					img9.style.visibility = "visible";
+					turno.innerText = "Turno de O"
 				}else{
 					img10.style.visibility = "visible";
+					turno.innerText = "Turno de X"
 				}
 				posSel = posicion['5'];
 				nuevoMovimiento(posSel);
@@ -175,10 +195,13 @@ document.addEventListener('DOMContentLoaded', ()=> {
 
 		if(enJuego){
 			if(casillaVacia(posicion['6'])){
+				comienza.innerText = ""
 				if(tipoDeJugador == "X"){
 					img15.style.visibility = "visible";
+					turno.innerText = "Turno de O"
 				}else{
 					img16.style.visibility = "visible";
+					turno.innerText = "Turno de X"
 				}
 				posSel = posicion['6'];
 				nuevoMovimiento(posSel);
@@ -191,10 +214,13 @@ document.addEventListener('DOMContentLoaded', ()=> {
 
 		if(enJuego){
 			if(casillaVacia(posicion['7'])){
+				comienza.innerText = ""
 				if(tipoDeJugador == "X"){
 					img5.style.visibility = "visible";
+					turno.innerText = "Turno de O"
 				}else{
 					img6.style.visibility = "visible";
+					turno.innerText = "Turno de X"
 				}
 				posSel = posicion['7'];
 				nuevoMovimiento(posSel);
@@ -207,10 +233,13 @@ document.addEventListener('DOMContentLoaded', ()=> {
 
 		if(enJuego){
 			if(casillaVacia(posicion['8'])){
+				comienza.innerText = ""
 				if(tipoDeJugador == "X"){
 					img11.style.visibility = "visible";
+					turno.innerText = "Turno de O"
 				}else{
 					img12.style.visibility = "visible";
+					turno.innerText = "Turno de X"
 				}
 				posSel = posicion['8'];
 				nuevoMovimiento(posSel);
@@ -223,10 +252,13 @@ document.addEventListener('DOMContentLoaded', ()=> {
 
 		if(enJuego){
 			if(casillaVacia(posicion['9'])){
+				comienza.innerText = ""
 				if(tipoDeJugador == "X"){
 					img17.style.visibility = "visible";
+					turno.innerText = "Turno de O"
 				}else{
 					img18.style.visibility = "visible";
+					turno.innerText = "Turno de X"
 				}
 				posSel = posicion['9'];
 				nuevoMovimiento(posSel);
@@ -248,14 +280,14 @@ document.addEventListener('DOMContentLoaded', ()=> {
 	//NUevo movimiento
 	function nuevoMovimiento(posSel){
 
+		
 		if(enJuego){
-
+			
 			if (marcarCasilla(posSel, tipoDeJugador)){
-
+				
 				console.log("JUgador::", tipoDeJugador);
 
 				console.log("Celda marcada ok");
-
 
 				if( esGanador(tipoDeJugador) ){
 					enJuego = false
@@ -318,15 +350,22 @@ document.addEventListener('DOMContentLoaded', ()=> {
 		if(inicio == 0) {
 			const resultado = Math.floor(Math.random() * 2) + 1
 			// console.log(resultado);
+			
+			
 
 			if (resultado == 1){
 				// cantUno++;
 				jugadorX = true;
 				tipoDeJugador = "X";
+				comienza.innerText = "Comienza X"
+				
+				///comienza X
 			}else if(resultado == 2){
 				// cantDos++;
 				jugadorX = false;
 				tipoDeJugador = "O"
+				 
+				comienza.innerText = "Comienza O"
 			}
 
 		}else if (inicio == 1){
@@ -396,7 +435,7 @@ document.addEventListener('DOMContentLoaded', ()=> {
 
 
 	function marcarCasilla(pos , jugador){
-
+		
 		try{
 			let pos1 = Number( pos[0] )
 			let pos2 = Number( pos[1] )

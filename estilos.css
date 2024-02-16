@@ -21,6 +21,16 @@ body{
     padding: 0px;
     background-color: grey;
 }
+#turno{
+    position: absolute;
+    left: 54vw;
+    top: 45vh;
+}
+#comienza{
+    position: absolute;
+    left: 53vw;
+    top: 43vh;
+}
 .padre{
     height: 73vh;
     width: 100vw;
