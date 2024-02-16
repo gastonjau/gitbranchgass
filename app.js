@@ -38,7 +38,8 @@ document.addEventListener('DOMContentLoaded', ()=> {
 		if(casillaVacia(posicion['1'])){
 			posSel = posicion['1'];
 			nuevoMovimiento(posSel);
-			console.log(posSel);
+			console.log(posSel, tipoDeJugador);
+			console.log(tablero);
 		}
 		
 	});
@@ -48,7 +49,8 @@ document.addEventListener('DOMContentLoaded', ()=> {
 		if(casillaVacia(posicion['2'])){
 			posSel = posicion['2'];
 			nuevoMovimiento(posSel);
-			console.log(posSel);
+			console.log(posSel, tipoDeJugador);
+			console.log(tablero);
 		}
 	});
 
@@ -57,38 +59,63 @@ document.addEventListener('DOMContentLoaded', ()=> {
 		if(casillaVacia(posicion['3'])){
 			posSel = posicion['3'];
 			nuevoMovimiento(posSel);
-			console.log(posSel);
+			console.log(posSel, tipoDeJugador);
+			console.log(tablero);
 		}
 	});
 
 	pos4.addEventListener('click', ()=> {
-		posSel = posicion['4'];
-		console.log(posSel);
+		if(casillaVacia(posicion['4'])){
+			posSel = posicion['4'];
+			nuevoMovimiento(posSel);
+			console.log(posSel, tipoDeJugador);
+			console.log(tablero);
+		}
 	});
 
 	pos5.addEventListener('click', ()=> {
-		posSel = posicion['5'];
-		console.log(posSel);
+		if(casillaVacia(posicion['5'])){
+			posSel = posicion['5'];
+			nuevoMovimiento(posSel);
+			console.log(posSel, tipoDeJugador);
+			console.log(tablero);
+		}
 	});
 
 	pos6.addEventListener('click', ()=> {
-		posSel = posicion['6'];
-		console.log(posSel);
+		if(casillaVacia(posicion['6'])){
+			posSel = posicion['6'];
+			nuevoMovimiento(posSel);
+			console.log(posSel, tipoDeJugador);
+			console.log(tablero);
+		}
 	});
 
 	pos7.addEventListener('click', ()=> {
-		posSel = posicion['7'];
-		console.log(posSel);
+		if(casillaVacia(posicion['7'])){
+			posSel = posicion['7'];
+			nuevoMovimiento(posSel);
+			console.log(posSel, tipoDeJugador);
+			console.log(tablero);
+		}
 	});
 
 	pos8.addEventListener('click', ()=> {
-		posSel = posicion['8'];
-		console.log(posSel);
+		if(casillaVacia(posicion['8'])){
+			posSel = posicion['8'];
+			nuevoMovimiento(posSel);
+			console.log(posSel, tipoDeJugador);
+			console.log(tablero);
+		}
 	});
 
 	pos9.addEventListener('click', ()=> {
-		posSel = posicion['9'];
-		console.log(posSel);
+		if(casillaVacia(posicion['9'])){
+			posSel = posicion['9'];
+			nuevoMovimiento(posSel);
+			console.log(posSel, tipoDeJugador);
+			console.log(tablero);
+		}
 	});
 
 
@@ -187,6 +214,11 @@ document.addEventListener('DOMContentLoaded', ()=> {
 		}else{
 			ganador = nombreJugador0;
 		}
+
+		if(ganador == ""){
+			ganador == tipoDeJugador;
+		}
+
 		console.log("El Ganador es: ", ganador );
 	}
 
@@ -232,7 +264,6 @@ document.addEventListener('DOMContentLoaded', ()=> {
 			let pos1 = Number( pos[0] )
 			let pos2 = Number( pos[1] )
 
-			// console.log("posicion: ",pos1, pos2)
 			tablero[pos1][pos2] = jugador //Nuevo arreglo modificado
 			return true;
 
