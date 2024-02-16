@@ -7,6 +7,7 @@ document.addEventListener('DOMContentLoaded', ()=> {
 	let inicioAlAzar = true; // el inicio puede ser al azar o el usuario elegi que jugador comienza.
 	let posSel;
 	quienComienza(0);
+	nuevojuego();
 
 	let nombreJugadorX = "";
 	let nombreJugador0 = "";
@@ -35,77 +36,103 @@ document.addEventListener('DOMContentLoaded', ()=> {
 
 	pos1.addEventListener('click', ()=> {
 
-		if(casillaVacia(posicion['1'])){
-			posSel = posicion['1'];
-			nuevoMovimiento(posSel);
-			console.log(tablero);
+		if(enJuego){
+			if(casillaVacia(posicion['1'])){
+				posSel = posicion['1'];
+				nuevoMovimiento(posSel);
+				console.log(tablero);
+			}
 		}
 		
 	});
 
 	pos2.addEventListener('click', ()=> {
 
-		if(casillaVacia(posicion['2'])){
-			posSel = posicion['2'];
-			nuevoMovimiento(posSel);
-			console.log(tablero);
+		if(enJuego){
+			if(casillaVacia(posicion['2'])){
+				posSel = posicion['2'];
+				nuevoMovimiento(posSel);
+				console.log(tablero);
+			}
 		}
 	});
 
 	pos3.addEventListener('click', ()=> {
 
-		if(casillaVacia(posicion['3'])){
-			posSel = posicion['3'];
-			nuevoMovimiento(posSel);
-			console.log(tablero);
+		if(enJuego){
+
+			if(casillaVacia(posicion['3'])){
+				posSel = posicion['3'];
+				nuevoMovimiento(posSel);
+				console.log(tablero);
+			}
 		}
 	});
 
 	pos4.addEventListener('click', ()=> {
-		if(casillaVacia(posicion['4'])){
-			posSel = posicion['4'];
-			nuevoMovimiento(posSel);
-			console.log(tablero);
+
+		if(enJuego){
+
+			if(casillaVacia(posicion['4'])){
+				posSel = posicion['4'];
+				nuevoMovimiento(posSel);
+				console.log(tablero);
+			}
 		}
 	});
 
 	pos5.addEventListener('click', ()=> {
-		if(casillaVacia(posicion['5'])){
-			posSel = posicion['5'];
-			nuevoMovimiento(posSel);
-			console.log(tablero);
+		
+		if(enJuego){
+			if(casillaVacia(posicion['5'])){
+				posSel = posicion['5'];
+				nuevoMovimiento(posSel);
+				console.log(tablero);
+			}
 		}
 	});
 
 	pos6.addEventListener('click', ()=> {
-		if(casillaVacia(posicion['6'])){
-			posSel = posicion['6'];
-			nuevoMovimiento(posSel);
-			console.log(tablero);
+
+		if(enJuego){
+			if(casillaVacia(posicion['6'])){
+				posSel = posicion['6'];
+				nuevoMovimiento(posSel);
+				console.log(tablero);
+			}
 		}
 	});
 
 	pos7.addEventListener('click', ()=> {
-		if(casillaVacia(posicion['7'])){
-			posSel = posicion['7'];
-			nuevoMovimiento(posSel);
-			console.log(tablero);
+
+		if(enJuego){
+			if(casillaVacia(posicion['7'])){
+				posSel = posicion['7'];
+				nuevoMovimiento(posSel);
+				console.log(tablero);
+			}
 		}
 	});
 
 	pos8.addEventListener('click', ()=> {
-		if(casillaVacia(posicion['8'])){
-			posSel = posicion['8'];
-			nuevoMovimiento(posSel);
-			console.log(tablero);
+
+		if(enJuego){
+			if(casillaVacia(posicion['8'])){
+				posSel = posicion['8'];
+				nuevoMovimiento(posSel);
+				console.log(tablero);
+			}
 		}
 	});
 
 	pos9.addEventListener('click', ()=> {
-		if(casillaVacia(posicion['9'])){
-			posSel = posicion['9'];
-			nuevoMovimiento(posSel);
-			console.log(tablero);
+
+		if(enJuego){
+			if(casillaVacia(posicion['9'])){
+				posSel = posicion['9'];
+				nuevoMovimiento(posSel);
+				console.log(tablero);
+			}
 		}
 	});
 
@@ -115,38 +142,46 @@ document.addEventListener('DOMContentLoaded', ()=> {
 		//inicializo variables para comenzar el juego
 		enJuego = true;
 		quienComienza(0);
-
+		tablero = [["","",""], ["","",""], ["","",""]];
 
 	}
 
 	//NUevo movimiento
 	function nuevoMovimiento(posSel){
 
-		if (marcarCasilla(posSel, tipoDeJugador)){
+		if(enJuego){
 
-			console.log("Celda marcada ok");
+			if (marcarCasilla(posSel, tipoDeJugador)){
 
-			if (hayUnaCasillaVacia()){
+				console.log("JUgador::", tipoDeJugador);
 
-				console.log("Tengo celdas libres");
-				siguienteJugador()
+				console.log("Celda marcada ok");
 
-				if(!hayUnaCasillaVacia() && !esGanador(tipoDeJugador)){
-					mostrarFinDelJuego();
-				}
-
-				if(esGanador(tipoDeJugador)){
+				if( esGanador(tipoDeJugador) ){
+					enJuego = false
 					mostrarGanador();
-				}
+					console.log("Tengo ganador");
+				}else{
 
+					console.log("No tengo ganador");
+
+					if (hayUnaCasillaVacia() ){
+
+						console.log("Tengo celdas libres");
+						siguienteJugador()
+		
+					}else{
+						console.log("NO tengo celdas libres");
+						enJuego = false
+						mostrarFinDelJuego();
+					}
+				}
+				
 			}else{
-				console.log("NO tengo celdas libres");
-				mostrarFinDelJuego();
+				console.log("Error al marcar la celda o no se marco por otro motivo");
 			}
-			
-		}else{
-			console.log("Error al marcar la celda o no se marco por otro motivo");
-		}	
+		}
+
 
 	} 
 
@@ -201,6 +236,7 @@ document.addEventListener('DOMContentLoaded', ()=> {
 	function mostrarGanador(){
 		//mostrar Ganador en pantalla
 		let ganador = ""
+
 		if(jugadorX){
 			ganador = nombreJugadorX;
 		}else{
@@ -266,6 +302,16 @@ document.addEventListener('DOMContentLoaded', ()=> {
 	}
 	// console.log(marcarCasilla(0,1, "X"))
 
+	function lineaTres (pos1, pos2, pos3, jugadorAct){
+
+		if ( pos1 != jugadorAct || pos2 != jugadorAct || pos3 != jugadorAct ){
+				return false;
+		}else if(pos1 == jugadorAct && pos2 == jugadorAct && pos3 == jugadorAct){
+				return true;
+		}
+	}
+
+
 	function esGanador (jugador) {
 
 		let jugadorAct = "";
@@ -280,26 +326,18 @@ document.addEventListener('DOMContentLoaded', ()=> {
 		}
 
 
-		function lineaTres (pos1, pos2, pos3){
+		if(lineaTres(tablero[0][0], tablero[0][1], tablero[0][2], jugadorAct ))return true && console.log("ganador horizontal")
+		if(lineaTres(tablero[1][0], tablero[1][1], tablero[1][2], jugadorAct ))return true && console.log("ganador horizontal")
+		if(lineaTres(tablero[2][0], tablero[2][1], tablero[2][2], jugadorAct ))return true && console.log("ganador horizontal")
 
+		if(lineaTres(tablero[0][0], tablero[1][0], tablero[2][0], jugadorAct ))return true && console.log("ganador vertical")
+		if(lineaTres(tablero[0][1], tablero[1][1], tablero[2][1], jugadorAct ))return true && console.log("ganador vertical")
+		if(lineaTres(tablero[0][2], tablero[1][2], tablero[2][2], jugadorAct ))return true && console.log("ganador vertical")
 
-			if ( pos1 != jugadorAct || pos2 != jugadorAct || pos3 != jugadorAct ){
-				return false;
-		}else if(pos1 == jugadorAct && pos2 == jugadorAct && pos3 == jugadorAct){
-				return true;
-			}
-		}
+		if(lineaTres(tablero[0][0], tablero[1][1], tablero[2][2], jugadorAct ))return true && console.log("ganador diagonal")
+		if(lineaTres(tablero[0][2], tablero[1][1], tablero[2][0], jugadorAct ))return true && console.log("ganador diagonal")
 
-		if(lineaTres(tablero[0][0], tablero[0][1], tablero[0][2]))return true && console.log("ganador horizontal")
-		if(lineaTres(tablero[1][0], tablero[1][1], tablero[1][2]))return true && console.log("ganador horizontal")
-		if(lineaTres(tablero[2][0], tablero[2][1], tablero[2][2]))return true && console.log("ganador horizontal")
-
-		if(lineaTres(tablero[0][0], tablero[1][0], tablero[2][0]))return true && console.log("ganador vertical")
-		if(lineaTres(tablero[0][1], tablero[1][1], tablero[2][1]))return true && console.log("ganador vertical")
-		if(lineaTres(tablero[0][2], tablero[1][2], tablero[2][2]))return true && console.log("ganador vertical")
-
-		if(lineaTres(tablero[0][0], tablero[1][1], tablero[2][2]))return true && console.log("ganador diagonal")
-		if(lineaTres(tablero[0][2], tablero[1][1], tablero[2][0]))return true && console.log("ganador diagonal")
+		return false;
 	}
 	// esGanador("O")
 
