@@ -1,3 +1,6 @@
+
+let tablero = [["X","O","X"], ["O","X","O"], ["X","O","X"]];
+
 //** TESTING **
 
 // prueba de inicio aleatorio
@@ -23,4 +26,29 @@ function pruebaPosiciones(){
 	}
 }
 
-pruebaPosiciones()
+// pruebaPosiciones()
+
+
+function hayUnaCasillaVacia(){
+
+	for(let i = 0; i < 3; i++){
+		for(let j = 0 ; j < 3; j++){
+
+			console.log("i", i, "j", j)
+			let celda  = tablero[i][j];
+			console.log("celda::", celda)
+			
+			if( celda  == ""){
+				return true;
+			}
+				
+		}
+	}
+
+	return false;
+	
+} //Funciona bie
+
+
+let resultado = hayUnaCasillaVacia()
+console.log(resultado);

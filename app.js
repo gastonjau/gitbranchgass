@@ -38,7 +38,6 @@ document.addEventListener('DOMContentLoaded', ()=> {
 		if(casillaVacia(posicion['1'])){
 			posSel = posicion['1'];
 			nuevoMovimiento(posSel);
-			console.log(posSel, tipoDeJugador);
 			console.log(tablero);
 		}
 		
@@ -49,7 +48,6 @@ document.addEventListener('DOMContentLoaded', ()=> {
 		if(casillaVacia(posicion['2'])){
 			posSel = posicion['2'];
 			nuevoMovimiento(posSel);
-			console.log(posSel, tipoDeJugador);
 			console.log(tablero);
 		}
 	});
@@ -59,7 +57,6 @@ document.addEventListener('DOMContentLoaded', ()=> {
 		if(casillaVacia(posicion['3'])){
 			posSel = posicion['3'];
 			nuevoMovimiento(posSel);
-			console.log(posSel, tipoDeJugador);
 			console.log(tablero);
 		}
 	});
@@ -68,7 +65,6 @@ document.addEventListener('DOMContentLoaded', ()=> {
 		if(casillaVacia(posicion['4'])){
 			posSel = posicion['4'];
 			nuevoMovimiento(posSel);
-			console.log(posSel, tipoDeJugador);
 			console.log(tablero);
 		}
 	});
@@ -77,7 +73,6 @@ document.addEventListener('DOMContentLoaded', ()=> {
 		if(casillaVacia(posicion['5'])){
 			posSel = posicion['5'];
 			nuevoMovimiento(posSel);
-			console.log(posSel, tipoDeJugador);
 			console.log(tablero);
 		}
 	});
@@ -86,7 +81,6 @@ document.addEventListener('DOMContentLoaded', ()=> {
 		if(casillaVacia(posicion['6'])){
 			posSel = posicion['6'];
 			nuevoMovimiento(posSel);
-			console.log(posSel, tipoDeJugador);
 			console.log(tablero);
 		}
 	});
@@ -95,7 +89,6 @@ document.addEventListener('DOMContentLoaded', ()=> {
 		if(casillaVacia(posicion['7'])){
 			posSel = posicion['7'];
 			nuevoMovimiento(posSel);
-			console.log(posSel, tipoDeJugador);
 			console.log(tablero);
 		}
 	});
@@ -104,7 +97,6 @@ document.addEventListener('DOMContentLoaded', ()=> {
 		if(casillaVacia(posicion['8'])){
 			posSel = posicion['8'];
 			nuevoMovimiento(posSel);
-			console.log(posSel, tipoDeJugador);
 			console.log(tablero);
 		}
 	});
@@ -113,7 +105,6 @@ document.addEventListener('DOMContentLoaded', ()=> {
 		if(casillaVacia(posicion['9'])){
 			posSel = posicion['9'];
 			nuevoMovimiento(posSel);
-			console.log(posSel, tipoDeJugador);
 			console.log(tablero);
 		}
 	});
@@ -135,12 +126,12 @@ document.addEventListener('DOMContentLoaded', ()=> {
 
 			console.log("Celda marcada ok");
 
-			if (hayCasillaVacia()){
+			if (hayUnaCasillaVacia()){
 
 				console.log("Tengo celdas libres");
 				siguienteJugador()
 
-				if(!hayCasillaVacia() && !esGanador(tipoDeJugador)){
+				if(!hayUnaCasillaVacia() && !esGanador(tipoDeJugador)){
 					mostrarFinDelJuego();
 				}
 
@@ -150,6 +141,7 @@ document.addEventListener('DOMContentLoaded', ()=> {
 
 			}else{
 				console.log("NO tengo celdas libres");
+				mostrarFinDelJuego();
 			}
 			
 		}else{
@@ -312,9 +304,9 @@ document.addEventListener('DOMContentLoaded', ()=> {
 	// esGanador("O")
 
 
-	function hayCasillaVacia(){
+	function hayUnaCasillaVacia(){
 
-		for(let i = 0; i < i < 3; i++){
+		for(let i = 0; i < 3; i++){
 			for(let j = 0 ; j < 3; j++){
 
 				// console.log("i", i, "j", j)
@@ -334,3 +326,6 @@ document.addEventListener('DOMContentLoaded', ()=> {
 
 
 });
+
+
+
