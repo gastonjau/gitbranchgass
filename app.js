@@ -8,9 +8,39 @@ document.addEventListener('DOMContentLoaded', ()=> {
 	let posSel;
 	quienComienza(0);
 	nuevojuego();
+	let nombreJugadorX = ""
+	let nombreJugador0 = ""
 
-	let nombreJugadorX = "";
-	let nombreJugador0 = "";
+	let botonconf = document.getElementById("botonconf")
+	botonconf.addEventListener("click", () => {
+		nombreJugadorX = document.getElementById("jugador1").value;
+		nombreJugador0 = document.getElementById("jugador2").value;
+		alert("Nombres Actualizados")
+	})
+
+	let botonconf2 = document.getElementById("botonconf2")
+	botonconf2.addEventListener("click", () => {
+		tablero = [["","",""], ["","",""], ["","",""]];
+		img1.style.visibility = "hidden";
+		img2.style.visibility = "hidden";
+		img3.style.visibility = "hidden";
+		img4.style.visibility = "hidden";
+		img5.style.visibility = "hidden";
+		img6.style.visibility = "hidden";
+		img7.style.visibility = "hidden";
+		img8.style.visibility = "hidden";
+		img9.style.visibility = "hidden";
+		img10.style.visibility = "hidden";
+		img11.style.visibility = "hidden";
+		img12.style.visibility = "hidden";
+		img13.style.visibility = "hidden";
+		img14.style.visibility = "hidden";
+		img15.style.visibility = "hidden";
+		img16.style.visibility = "hidden";
+		img17.style.visibility = "hidden";
+		img18.style.visibility = "hidden";
+		alert("Tablero Reseteado")
+	})
 
 	let posicion ={
 		1: "00",
@@ -34,13 +64,41 @@ document.addEventListener('DOMContentLoaded', ()=> {
 	const pos8 = document.getElementById("8");
 	const pos9 = document.getElementById("9");
 
+    let img1 = document.getElementById("imagen1")
+	let img2 = document.getElementById("imagen2")
+	let img3 = document.getElementById("imagen3")
+	let img4 = document.getElementById("imagen4")
+	let img5 = document.getElementById("imagen5")
+	let img6 = document.getElementById("imagen6")
+	let img7 = document.getElementById("imagen7")
+	let img8 = document.getElementById("imagen8")
+	let img9 = document.getElementById("imagen9")
+	let img10 = document.getElementById("imagen10")
+	let img11 = document.getElementById("imagen11")
+	let img12 = document.getElementById("imagen12")
+	let img13 = document.getElementById("imagen13")
+	let img14 = document.getElementById("imagen14")
+	let img15 = document.getElementById("imagen15")
+	let img16 = document.getElementById("imagen16")
+	let img17 = document.getElementById("imagen17")
+	let img18 = document.getElementById("imagen18")
+
+
+
 	pos1.addEventListener('click', ()=> {
 
 		if(enJuego){
 			if(casillaVacia(posicion['1'])){
+
+				if(tipoDeJugador == "X"){
+					img1.style.visibility = "visible";
+				}else{
+					img2.style.visibility = "visible";
+				}
 				posSel = posicion['1'];
 				nuevoMovimiento(posSel);
 				console.log(tablero);
+
 			}
 		}
 		
@@ -48,8 +106,14 @@ document.addEventListener('DOMContentLoaded', ()=> {
 
 	pos2.addEventListener('click', ()=> {
 
+		
 		if(enJuego){
 			if(casillaVacia(posicion['2'])){
+				if(tipoDeJugador == "X"){
+					img7.style.visibility = "visible";
+				}else{
+					img8.style.visibility = "visible";
+				}
 				posSel = posicion['2'];
 				nuevoMovimiento(posSel);
 				console.log(tablero);
@@ -62,6 +126,11 @@ document.addEventListener('DOMContentLoaded', ()=> {
 		if(enJuego){
 
 			if(casillaVacia(posicion['3'])){
+				if(tipoDeJugador == "X"){
+					img13.style.visibility = "visible";
+				}else{
+					img14.style.visibility = "visible";
+				}
 				posSel = posicion['3'];
 				nuevoMovimiento(posSel);
 				console.log(tablero);
@@ -74,6 +143,11 @@ document.addEventListener('DOMContentLoaded', ()=> {
 		if(enJuego){
 
 			if(casillaVacia(posicion['4'])){
+				if(tipoDeJugador == "X"){
+					img3.style.visibility = "visible";
+				}else{
+					img4.style.visibility = "visible";
+				}
 				posSel = posicion['4'];
 				nuevoMovimiento(posSel);
 				console.log(tablero);
@@ -85,6 +159,11 @@ document.addEventListener('DOMContentLoaded', ()=> {
 		
 		if(enJuego){
 			if(casillaVacia(posicion['5'])){
+				if(tipoDeJugador == "X"){
+					img9.style.visibility = "visible";
+				}else{
+					img10.style.visibility = "visible";
+				}
 				posSel = posicion['5'];
 				nuevoMovimiento(posSel);
 				console.log(tablero);
@@ -96,6 +175,11 @@ document.addEventListener('DOMContentLoaded', ()=> {
 
 		if(enJuego){
 			if(casillaVacia(posicion['6'])){
+				if(tipoDeJugador == "X"){
+					img15.style.visibility = "visible";
+				}else{
+					img16.style.visibility = "visible";
+				}
 				posSel = posicion['6'];
 				nuevoMovimiento(posSel);
 				console.log(tablero);
@@ -107,6 +191,11 @@ document.addEventListener('DOMContentLoaded', ()=> {
 
 		if(enJuego){
 			if(casillaVacia(posicion['7'])){
+				if(tipoDeJugador == "X"){
+					img5.style.visibility = "visible";
+				}else{
+					img6.style.visibility = "visible";
+				}
 				posSel = posicion['7'];
 				nuevoMovimiento(posSel);
 				console.log(tablero);
@@ -118,6 +207,11 @@ document.addEventListener('DOMContentLoaded', ()=> {
 
 		if(enJuego){
 			if(casillaVacia(posicion['8'])){
+				if(tipoDeJugador == "X"){
+					img11.style.visibility = "visible";
+				}else{
+					img12.style.visibility = "visible";
+				}
 				posSel = posicion['8'];
 				nuevoMovimiento(posSel);
 				console.log(tablero);
@@ -129,6 +223,11 @@ document.addEventListener('DOMContentLoaded', ()=> {
 
 		if(enJuego){
 			if(casillaVacia(posicion['9'])){
+				if(tipoDeJugador == "X"){
+					img17.style.visibility = "visible";
+				}else{
+					img18.style.visibility = "visible";
+				}
 				posSel = posicion['9'];
 				nuevoMovimiento(posSel);
 				console.log(tablero);
@@ -157,11 +256,18 @@ document.addEventListener('DOMContentLoaded', ()=> {
 
 				console.log("Celda marcada ok");
 
+
 				if( esGanador(tipoDeJugador) ){
 					enJuego = false
-					console.log("aca")
+
+					console.log("aca", tipoDeJugador)
                     mostrarGanador();
-					console.log("Tengo ganador", tipoDeJugador);
+					if(tipoDeJugador == "O"){
+						alert ("Tengo ganador  "+ nombreJugador0);
+					}
+					if(tipoDeJugador == "X"){
+						alert ("Tengo ganador  "+ nombreJugadorX);
+					}
 
 				}else{
 
@@ -231,6 +337,7 @@ document.addEventListener('DOMContentLoaded', ()=> {
 			tipoDeJugador = "O"
 
 		}
+		return tipoDeJugador;
 
 	}
 

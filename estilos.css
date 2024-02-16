@@ -22,7 +22,7 @@ body{
     background-color: grey;
 }
 .padre{
-    height: 63vh;
+    height: 73vh;
     width: 100vw;
     background-color: grey;
     margin: 0px;
@@ -119,12 +119,30 @@ justify-content: center;
     align-items: center;
     justify-content: center;
 }
-.formulario1{
-    
+.otrodiv{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 20px;
+}
+#botonconf{
+    margin-top: 30px;
+}
+#botonconf2{
+    margin-top: 30px;
 }
 .divarr{
     display: flex;
     align-items: center;
     justify-content: center;
     margin-top: 140px;
+    gap: 10px;
+}
+.circulo{
+    position: absolute;
+    visibility: hidden;
+}
+.cruz{
+    position: absolute;
+    visibility: hidden;
 }
