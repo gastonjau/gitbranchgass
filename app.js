@@ -244,14 +244,27 @@ document.addEventListener('DOMContentLoaded', ()=> {
 	// console.log(marcarCasilla(0,1, "X"))
 
 	function esGanador (jugador) {
+
+		let jugadorAct = "";
+
+		if(jugador == "X"){
+			jugadorAct = jugador;
+		}else if(jugador == "O"){
+			jugadorAct = jugador;
+		}else{
+
+			console.log("Error: Jugador incorrecto");
+		}
+
+
 		function lineaTres (pos1, pos2, pos3){
 
-			// if ( casillaVacia(pos1) || casillaVacia(pos2) || casillaVacia(pos3)){
-			// 	return false;
-			// }
-			// else{
-			// 	return true;
-			// }
+
+			if ( pos1 != jugadorAct || pos2 != jugadorAct || pos3 != jugadorAct ){
+				return false;
+		}else if(pos1 == jugadorAct && pos2 == jugadorAct && pos3 == jugadorAct){
+				return true;
+			}
 		}
 
 		if(lineaTres(tablero[0][0], tablero[0][1], tablero[0][2]))return true && console.log("ganador horizontal")
