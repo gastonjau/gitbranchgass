@@ -13,36 +13,32 @@
     <title>Juego Tres en línea</title>
 </head>
 <body>
-    
-  <article>
-    <h1>Juego de Ta-Te-Ti</h1>
+    <div class="container-fluid" id="contenedor">
+      <div id="titulo"><h1>Juego de Ta-Te-Ti</h1></div>
+      
 
-  </article>
+        <div class="otrodiv">
+          <div class="jugadores">
+            <input type="text" id="jugador1" class="form input-form" placeholder="Jugador 1" name="player1">
+            <img src="./cruz.png" width="25px" alt="circulo">
+          </div>
 
-  <div id="turno" class="badge text-bg-dark"></div>
-  <div id="comienza" class="badge text-bg-success">Comienza</div>
+        <div class="otrodiv">
+          <div class="jugadores">
+            <input type="text" id="jugador2" placeholder="Jugador 2"  name="player2">
+            <img src="./circulo.png" width="25px" alt="cruz">
+          </div>
+        </div>
 
-  <section class="sectionclass">
-    <div class="otrodiv">
-    <form class="formulario">
-      <label >Jugador 1: </label><br>
-      <input type="text" id="jugador1" class="form input-form" name="player1">
-      <img src="./cruz.png" width="25px" alt="circulo">
-    </form>
-    <br>
-    <form class="formulario1">
-      <label >Jugador 2: </label>
-      <input type="text" id="jugador2" name="player2">
-      <img src="./circulo.png" width="25px" alt="cruz">
-    </form>
-    <div class="divarr">
+        <div class="botones">
+          <button id="botonconf" class="col col-4 btn btn-primary">Confirmar</button>
+          <button id="botonreset" class="col col-4 btn btn-warning">Reset</button>
+        </div>
+      </div>
+      
+      <div id="info" class="col-sm-3 col-md-3  badge text-bg-success">Comienza</div>
 
-      <button id="botonconf" class=" btn btn-primary">Confirmar</button><button id="botonconf2" class=" btn btn-warning">Reset</button>
-    </div>
-  </div>
-  </section>
-  
-
+      <div id="turno" class="col-sm-3 col-md-3 badge text-bg-dark"></div> 
 
       <div class="padre">
         <div class="padrex">
@@ -58,39 +54,40 @@
             <img src="./cruz.png" id="imagen5" alt="cruz" class="cruz" width="50px">
           <img src="./circulo.png" id="imagen6" alt="circulo" class="circulo" width="50px">
           </div>
-    </div>
-        <div class="padrex2">
-            <div id="2" class="div4">
-              <img src="./cruz.png" id="imagen7" alt="cruz" class="cruz" width="50px">
-          <img src="./circulo.png" id="imagen8" alt="circulo" class="circulo" width="50px">
-            </div>
-            <div id="5" class="div5">
-              <img src="./cruz.png" id="imagen9" alt="cruz" class="cruz" width="50px">
-          <img src="./circulo.png" id="imagen10" alt="circulo" class="circulo" width="50px">
-            </div>
-            <div id="8"class="div6">
-            
-            <img src="./cruz.png" alt="cruz" id="imagen11" class="cruz" width="50px">
-            <img src="./circulo.png" alt="circulo" id="imagen12"class="circulo" width="50px">
-            </div>
-        </div>
-            <div class="padrex2">
-              <div id="3" class="div4"> 
-                <img src="./cruz.png" alt="cruz" class="cruz"id="imagen13" width="50px">
-                <img src="./circulo.png" alt="circulo" class="circulo" id="imagen14" width="50px">  
-              </div>
-              <div id="6" class="div5">
-                <img src="./cruz.png" alt="cruz" class="cruz" id="imagen15" width="50px">
-                <img src="./circulo.png" alt="circulo" class="circulo" id="imagen16" width="50px">
-              </div>
-              <div id="9"class="div6">
-                <img src="./cruz.png" alt="cruz" class="cruz"id="imagen17" width="50px">
-                <img src="./circulo.png" alt="circulo" class="circulo" id="imagen18" width="50px">
-              </div>
-              </div>
+      </div>
+
+      <div class="padrex2">
+          <div id="2" class="div4">
+            <img src="./cruz.png" id="imagen7" alt="cruz" class="cruz" width="50px">
+        <img src="./circulo.png" id="imagen8" alt="circulo" class="circulo" width="50px">
           </div>
-      
-        
+          <div id="5" class="div5">
+            <img src="./cruz.png" id="imagen9" alt="cruz" class="cruz" width="50px">
+        <img src="./circulo.png" id="imagen10" alt="circulo" class="circulo" width="50px">
+          </div>
+          <div id="8"class="div6">
+          
+          <img src="./cruz.png" alt="cruz" id="imagen11" class="cruz" width="50px">
+          <img src="./circulo.png" alt="circulo" id="imagen12"class="circulo" width="50px">
+          </div>
+      </div>
+
+      <div class="padrex2">
+        <div id="3" class="div4"> 
+          <img src="./cruz.png" alt="cruz" class="cruz"id="imagen13" width="50px">
+          <img src="./circulo.png" alt="circulo" class="circulo" id="imagen14" width="50px">  
+        </div>
+        <div id="6" class="div5">
+          <img src="./cruz.png" alt="cruz" class="cruz" id="imagen15" width="50px">
+          <img src="./circulo.png" alt="circulo" class="circulo" id="imagen16" width="50px">
+        </div>
+        <div id="9"class="div6">
+          <img src="./cruz.png" alt="cruz" class="cruz"id="imagen17" width="50px">
+          <img src="./circulo.png" alt="circulo" class="circulo" id="imagen18" width="50px">
+        </div>
+        </div>
+    </div>
+
     </div>
 </body>
 </html>

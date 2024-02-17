@@ -1,40 +1,37 @@
-.row{
-    background-color: grey;
-    border: 1px, solid skyblue;
-}
 
-h1{
-    margin-top: 30px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    background-color: grey;
-    margin: 0px !important;
-    padding: 0px;
-}
-article{
-    margin: 0px;
-    padding: 0px;
-}
 body{
     margin: 0px;
     padding: 0px;
-    background-color: grey;
+    /* background-color: grey; */
 }
-#turno{
-    position: absolute;
-    left: 54vw;
-    top: 45vh;
+
+#contenedor{
+    display: flex;
+    flex-direction: column;
+    height: 100vh;
+    min-width: 460px;
+    align-items: center;
+    justify-content: center;
+    background-color: rgb(145, 69, 69);
 }
-#comienza{
-    position: absolute;
-    left: 53vw;
-    top: 43vh;
+
+#titulo{
+    margin-top: 5px;;
 }
+
+h1{
+    color: rgb(20, 4, 4);
+    padding: 0px;
+}
+
+.row{
+    border: 1px, solid skyblue;
+}
+
 .padre{
-    height: 73vh;
-    width: 100vw;
-    background-color: grey;
+    /* height: 73vh;
+    width: 100vw; */
+    /* background-color: grey; */
     margin: 0px;
     padding: 0px;
     justify-content: center;
@@ -42,112 +39,36 @@ body{
     align-items: center;
 }
 
-.div1{
+.div1, .div2, .div3, .div4, .div5, .div6{
     display: flex;
     justify-content: center;
     align-items: center;
     background-color: skyblue;
-    width: 100px;
-    height: 100px;
+    width: 90px;
+    height: 90px;
     border: 1px solid black;
-}
-.div2{
-    justify-content: center;
-    display: flex;
-    align-items: center;
-    background-color: skyblue;
-    width: 100px;
-    height: 100px;
-    border: 1px solid black;
-}
-.div3{
-    justify-content: center;
-    display: flex;
-    align-items: center;
-    background-color: skyblue;
-    width: 100px;
-    height: 100px;
-    border: 1px solid black;
-}
-.div4{
-    justify-content: center;
-    display: flex;
-    align-items: center;
-    background-color: skyblue;
-    width: 100px;
-    height: 100px;
-    border: 1px solid black;
-}
-.div5{
-    justify-content: center;
-    display: flex;
-    align-items: center;
-    background-color: skyblue;
-    width: 100px;
-    height: 100px;
-    border: 1px solid black;
-}
-.div6{
-    justify-content: center;
-    display: flex;
-    align-items: center;
-    background-color: skyblue;
-    width: 100px;
-    height: 100px;
-    border: 1px solid black;
-}
-.formulario1 {
-    display: flex;
-    align-items: center;
-    position: absolute;
-    justify-content: center;
-    
-
-}
-.formulario {
-    display: flex;
-    align-items: center;
-    position: absolute;
-    justify-content: center;
-    
-
-   
-}
-section {
-    background-color: grey;
 }
 
-.otrodiv{
-display: flex;
-align-items: center;
-justify-content: center;
+.jugadores{
+    margin: 15px 0;
+}
 
+#botonconf, #botonreset{
+    margin: 12px 5px;
+    padding: 5px;
 }
-.formulario{
-    margin-top:70px ;
-    display: flex;
-    align-items: center;
-    justify-content: center;
+
+#turno, #info{
+    margin: 10px 0;
+    max-width: 800px;
 }
-.otrodiv{
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    gap: 20px;
-}
-#botonconf{
-    margin-top: 30px;
-}
-#botonconf2{
-    margin-top: 30px;
-}
+
 .divarr{
-    display: flex;
     align-items: center;
     justify-content: center;
-    margin-top: 140px;
-    gap: 10px;
+
 }
+
 .circulo{
     position: absolute;
     visibility: hidden;
