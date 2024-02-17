@@ -6,7 +6,7 @@ document.addEventListener('DOMContentLoaded', ()=> {
 	let tipoDeJugador = "O"
 	let inicioAlAzar = true; // el inicio puede ser al azar o el usuario elegi que jugador comienza.
 	let posSel;
-	let comienza = document.getElementById("comienza"); 
+	let comienza = document.getElementById("info"); 
 	quienComienza(0);
 	nuevojuego();
 	let nombreJugadorX = ""
@@ -20,7 +20,7 @@ document.addEventListener('DOMContentLoaded', ()=> {
 		alert("Nombres Actualizados")
 	})
 
-	let botonconf2 = document.getElementById("botonconf2")
+	let botonconf2 = document.getElementById("botonreset")
 	botonconf2.addEventListener("click", () => {
 		img1.style.visibility = "hidden";
 		img2.style.visibility = "hidden";
