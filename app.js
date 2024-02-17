@@ -6,22 +6,31 @@ document.addEventListener('DOMContentLoaded', ()=> {
 	let tipoDeJugador = "O"
 	let inicioAlAzar = true; // el inicio puede ser al azar o el usuario elegi que jugador comienza.
 	let posSel;
+
 	let comienza = document.getElementById("info"); 
+	let botonreset = document.getElementById("botonreset")
+	let botonconf = document.getElementById("botonconf")
+
 	quienComienza(0);
 	nuevojuego();
 	let nombreJugadorX = ""
 	let nombreJugador0 = ""
 	
 
-	let botonconf = document.getElementById("botonconf")
+
 	botonconf.addEventListener("click", () => {
 		nombreJugadorX = document.getElementById("jugador1").value;
 		nombreJugador0 = document.getElementById("jugador2").value;
-		alert("Nombres Actualizados")
+		reset();
+		nuevojuego();
 	})
 
-	let botonconf2 = document.getElementById("botonreset")
-	botonconf2.addEventListener("click", () => {
+	botonreset.addEventListener("click", () => {
+		reset();
+	})
+
+	function reset(){
+		
 		img1.style.visibility = "hidden";
 		img2.style.visibility = "hidden";
 		img3.style.visibility = "hidden";
@@ -39,12 +48,13 @@ document.addEventListener('DOMContentLoaded', ()=> {
 		img15.style.visibility = "hidden";
 		img16.style.visibility = "hidden";
 		img17.style.visibility = "hidden";
-		img18.style.visibility = "hidden";
+		img18.style.visibility = "hidden"
+		turno.style.display = "none"
+		comienza.style.visibility = "initial";
 		turno.innerText = ""
-		tablero = [["","",""], ["","",""], ["","",""]];
-		quienComienza(0)
-		alert("Tablero Reseteado")
-	})
+		nuevojuego()
+		
+	}
 
 	let posicion ={
 		1: "00",
@@ -94,7 +104,8 @@ document.addEventListener('DOMContentLoaded', ()=> {
 		
 		if(enJuego){
 			if(casillaVacia(posicion['1'])){
-				comienza.innerText = ""
+				comienza.innerText = "";
+				activarInfoTurno();
 				if(tipoDeJugador == "X"){
 					img1.style.visibility = "visible";
 					turno.innerText = "Turno de O"
@@ -117,7 +128,8 @@ document.addEventListener('DOMContentLoaded', ()=> {
 		
 		if(enJuego){
 			if(casillaVacia(posicion['2'])){
-				comienza.innerText = ""
+				comienza.innerText = "";
+				activarInfoTurno();
 				if(tipoDeJugador == "X"){
 					img7.style.visibility = "visible";
 					turno.innerText = "Turno de O"
@@ -137,7 +149,8 @@ document.addEventListener('DOMContentLoaded', ()=> {
 		if(enJuego){
 
 			if(casillaVacia(posicion['3'])){
-				comienza.innerText = ""
+				comienza.innerText = "";
+				activarInfoTurno();
 				if(tipoDeJugador == "X"){
 					img13.style.visibility = "visible";
 					turno.innerText = "Turno de O"
@@ -157,7 +170,8 @@ document.addEventListener('DOMContentLoaded', ()=> {
 		if(enJuego){
 
 			if(casillaVacia(posicion['4'])){
-				comienza.innerText = ""
+				comienza.innerText = "";
+				activarInfoTurno();
 				if(tipoDeJugador == "X"){
 					img3.style.visibility = "visible";
 					turno.innerText = "Turno de O"
@@ -176,7 +190,8 @@ document.addEventListener('DOMContentLoaded', ()=> {
 		
 		if(enJuego){
 			if(casillaVacia(posicion['5'])){
-				comienza.innerText = ""
+				comienza.innerText = "";
+				activarInfoTurno();
 				if(tipoDeJugador == "X"){
 					img9.style.visibility = "visible";
 					turno.innerText = "Turno de O"
@@ -195,7 +210,8 @@ document.addEventListener('DOMContentLoaded', ()=> {
 
 		if(enJuego){
 			if(casillaVacia(posicion['6'])){
-				comienza.innerText = ""
+				comienza.innerText = "";
+				activarInfoTurno();
 				if(tipoDeJugador == "X"){
 					img15.style.visibility = "visible";
 					turno.innerText = "Turno de O"
@@ -214,7 +230,8 @@ document.addEventListener('DOMContentLoaded', ()=> {
 
 		if(enJuego){
 			if(casillaVacia(posicion['7'])){
-				comienza.innerText = ""
+				comienza.innerText = "";
+				activarInfoTurno();
 				if(tipoDeJugador == "X"){
 					img5.style.visibility = "visible";
 					turno.innerText = "Turno de O"
@@ -233,7 +250,8 @@ document.addEventListener('DOMContentLoaded', ()=> {
 
 		if(enJuego){
 			if(casillaVacia(posicion['8'])){
-				comienza.innerText = ""
+				comienza.innerText = "";
+				activarInfoTurno();
 				if(tipoDeJugador == "X"){
 					img11.style.visibility = "visible";
 					turno.innerText = "Turno de O"
@@ -252,7 +270,8 @@ document.addEventListener('DOMContentLoaded', ()=> {
 
 		if(enJuego){
 			if(casillaVacia(posicion['9'])){
-				comienza.innerText = ""
+				comienza.innerText = "";
+				activarInfoTurno();
 				if(tipoDeJugador == "X"){
 					img17.style.visibility = "visible";
 					turno.innerText = "Turno de O"
@@ -267,6 +286,11 @@ document.addEventListener('DOMContentLoaded', ()=> {
 		}
 	});
 
+	function activarInfoTurno(){
+		if (turno.style.display = "none"){
+			turno.style.display = "initial"
+		}
+	}
 
 	function nuevojuego(){
 		
@@ -294,12 +318,6 @@ document.addEventListener('DOMContentLoaded', ()=> {
 
 					console.log("aca", tipoDeJugador)
                     mostrarGanador();
-					if(tipoDeJugador == "O"){
-						alert ("Tengo ganador  "+ nombreJugador0);
-					}
-					if(tipoDeJugador == "X"){
-						alert ("Tengo ganador  "+ nombreJugadorX);
-					}
 
 				}else{
 
@@ -392,8 +410,11 @@ document.addEventListener('DOMContentLoaded', ()=> {
 		}
 
 		if(ganador == ""){
-			ganador == tipoDeJugador;
+			ganador = tipoDeJugador;
 		}
+
+		turno.style.display = "none"
+		comienza.innerText = `Ganador: ${ganador}`
 
 		console.log("El Ganador es: ", ganador );
 	}
